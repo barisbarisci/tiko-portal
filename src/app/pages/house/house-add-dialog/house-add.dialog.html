@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Add House</h1>
+<div mat-dialog-content>
+  <p>Please fill the blanks</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input required matInput [(ngModel)]="data.description" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Address</mat-label>
+    <input required matInput [(ngModel)]="data.address" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Price</mat-label>
+    <input required matInput [(ngModel)]="data.price" type="number" min="0"/>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Number Of Bedrooms</mat-label>
+    <input required matInput [(ngModel)]="data.bedroomCount" min="1" max="10" type="number" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Cities</mat-label>
+    <mat-select [(ngModel)]="data.cityId">
+      <mat-option *ngFor="let city of cities" [value]="city.id">
+        {{city.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Agents</mat-label>
+    <mat-select [(ngModel)]="data.agentId">
+      <mat-option *ngFor="let agent of agents" [value]="agent.id">
+        {{agent.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onYesClick()">Ok</button>
+</div>

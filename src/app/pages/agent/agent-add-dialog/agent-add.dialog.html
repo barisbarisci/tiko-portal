@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Add Agent</h1>
+<div mat-dialog-content>
+  <p>Please enter agent name and city</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input required matInput [(ngModel)]="data.name" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Cities</mat-label>
+    <mat-select [(ngModel)]="data.cityId">
+      <mat-option *ngFor="let city of cities" [value]="city.id">
+        {{city.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onYesClick()">
+    Ok
+  </button>
+</div>

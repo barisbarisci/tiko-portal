@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Update House Price</h1>
+<div mat-dialog-content>
+  <p>Please enter new price</p>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Price</mat-label>
+    <input required matInput [(ngModel)]="data.price" type="number" min="0" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onYesClick()">Ok</button>
+</div>
